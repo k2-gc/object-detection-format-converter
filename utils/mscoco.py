@@ -187,7 +187,7 @@ class MSCOCODataset(BaseDataFormat):
             segmented_elem = ET.SubElement(root, 'segmented')
             folder_elem.text = "Unknown"
             if len(Path(image_path).parts) > 1:
-                folder_elem.text = str(Path(image_path).parents[-2])
+                folder_elem.text = str(Path(image_path).parts[-2])
             filename_elem.text = image_name
             path_elem.text = image_path
             ET.SubElement(source_elem, "database").text = "Unknown"
