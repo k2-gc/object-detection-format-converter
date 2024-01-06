@@ -3,10 +3,10 @@
 Dataset format converter for object detection
 
 ## Overview
-Deep learning field for image processing has many dataset format. For object detection task, MSCOCO, Yolo, PascalVOC and so on are frequently used and sometimes we have to convert our dataset annotation files to another. To deal with this, I creat dataset format converter for object detection. Supported dataset formats are below.
+Deep learning field for image processing has many dataset format. For object detection task, MSCOCO, YOLO, PascalVOC and so on are frequently used and sometimes we have to convert our dataset annotation files to another. To deal with this, I creat dataset format converter for object detection. Supported dataset formats are below.
 
 * [x] MSCOCO  
-* [x] Yolo  
+* [x] YOLO
 * [x] PascalVOC  
 * [x] KITTI
 
