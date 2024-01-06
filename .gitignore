@@ -163,3 +163,4 @@ cython_debug/
 test*
 sample/
 .DS_Store
+workspace/

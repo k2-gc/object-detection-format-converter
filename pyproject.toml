@@ -1,0 +1,13 @@
+[project]
+name = "objdet_converter"
+version = "1.0.0"
+dependencies = [
+    "numpy",
+    "opencv-python"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["objdet_converter"]
+exclude = [""]
+namespaces = false  # true by default
