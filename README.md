@@ -25,7 +25,7 @@ pip install dist/objdet_converter-1.0.0-py3-none-any.whl
 Call '[convert_format](./objdet_converter/utils/convert.py)' function with some args.
 ### Example
 ```python
-from objdet_converter.utils.convert import convert_format
+from objdet_converter.convert import convert_format
 
 convert_format(
     src_format="coco",

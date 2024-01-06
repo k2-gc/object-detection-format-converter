@@ -10,7 +10,7 @@
 ### From PascalVOC
 #### Code Example
 ```python
-from objdet_converter.utils.convert import convert_format
+from objdet_converter.convert import convert_format
 
 convert_format(
     src_format="pascalvoc",
@@ -42,7 +42,7 @@ If image width and image height information are provided in xml file, image file
 ### To PascalVOC
 #### Code Example
 ```python
-from objdet_converter.utils.convert import convert_format
+from objdet_converter.convert import convert_format
 
 convert_format(
     src_format=CONVERT_INPUT_FORMAT,

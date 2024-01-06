@@ -10,7 +10,7 @@
 ### From KITTI
 #### Code Example
 ```python
-from objdet_converter.utils.convert import convert_format
+from objdet_converter.convert import convert_format
 
 convert_format(
     src_format="kitti",
@@ -33,7 +33,7 @@ convert_format(
 ### To KITTI
 #### Code Example
 ```python
-from objdet_converter.utils.convert import convert_format
+from objdet_converter.convert import convert_format
 
 convert_format(
     src_format=CONVERT_INPUT_FORMAT,
