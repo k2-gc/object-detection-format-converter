@@ -1,7 +1,7 @@
-from utils.kitti import KITTIDataset
-from utils.mscoco import MSCOCODataset 
-from utils.pascalvoc import PascalVOCDataset
-from utils.yolo import YoloDataset
+from .kitti import KITTIDataset
+from .mscoco import MSCOCODataset 
+from .pascalvoc import PascalVOCDataset
+from .yolo import YoloDataset
 
 class ObjDetFormatConverter():
     """Converter class from 'dst_format' to 'src_format'

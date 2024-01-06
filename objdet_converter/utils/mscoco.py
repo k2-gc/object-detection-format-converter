@@ -7,8 +7,8 @@ import xml.etree.ElementTree as ET
 import cv2
 import numpy as np
 
-from utils.base import BaseDataFormat
-from utils.utils import absolute2relative, calculate_area, get_rectangle_all_points, topleftwh2centerwh, topleftwh2topleftbottomright
+from .base import BaseDataFormat
+from .utils import absolute2relative, calculate_area, get_rectangle_all_points, topleftwh2centerwh, topleftwh2topleftbottomright
 
 class MSCOCODataset(BaseDataFormat):
     """Dataset parser for MSCOCO

@@ -1,6 +1,6 @@
 import argparse
 
-from utils.convert import convert_format
+from objdet_converter.utils.convert import convert_format
 
 
 def convert_dataset(args):

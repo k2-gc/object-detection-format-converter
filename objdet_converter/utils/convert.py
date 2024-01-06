@@ -1,5 +1,5 @@
-from utils.utils import check_format_validation
-from utils.format_converter import ObjDetFormatConverter
+from .utils import check_format_validation
+from .format_converter import ObjDetFormatConverter
 
 
 def convert_format(src_format, dst_format, src_path, dst_path, class_txt_path=""):

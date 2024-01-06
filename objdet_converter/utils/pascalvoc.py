@@ -3,9 +3,9 @@ import xml.etree.ElementTree as ET
 
 import cv2
 
-from utils.base import BaseDataFormat
-from utils.mscoco import MSCOCODataset
-from utils.utils import check_image_existence, topleftbottomright2topleftwh
+from .base import BaseDataFormat
+from .mscoco import MSCOCODataset
+from .utils import check_image_existence, topleftbottomright2topleftwh
 
 class PascalVOCDataset(BaseDataFormat):
     """Dataset parser for PascalVOC
