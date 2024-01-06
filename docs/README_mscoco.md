@@ -11,7 +11,7 @@
 ### From MSCOCO
 #### Code Example
 ```python
-from utils.convert import convert_format
+from objdet_converter.utils.convert import convert_format
 
 convert_format(
     src_format="coco",
@@ -29,7 +29,7 @@ convert_format(
 ### To MSCOCO
 #### Code Example
 ```python
-from utils.convert import convert_format
+from objdet_converter.utils.convert import convert_format
 
 convert_format(
     src_format=CONVERT_INPUT_FORMAT,
@@ -41,7 +41,7 @@ convert_format(
 ```
 or 
 ```python
-from utils.convert import convert_format
+from objdet_converter.utils.convert import convert_format
 
 convert_format(
     src_format=CONVERT_INPUT_FORMAT,

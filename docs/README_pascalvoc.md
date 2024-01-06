@@ -10,7 +10,7 @@
 ### From PascalVOC
 #### Code Example
 ```python
-from utils.convert import convert_format
+from objdet_converter.utils.convert import convert_format
 
 convert_format(
     src_format="pascalvoc",
@@ -36,13 +36,13 @@ or
   ├─ image_00001.xml
   ├─ image_00002.png
   └─ image_00002.xml
-``````
+```
 If image width and image height information are provided in xml file, image files are not required.
 
 ### To PascalVOC
 #### Code Example
 ```python
-from utils.convert import convert_format
+from objdet_converter.utils.convert import convert_format
 
 convert_format(
     src_format=CONVERT_INPUT_FORMAT,

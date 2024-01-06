@@ -12,20 +12,20 @@ Deep learning field for image processing has many dataset format. For object det
 
 ## Prerequisites
 * Python >= 3.7
-* numpy
-* opencv
 
-Install python>=3.7 and run commands below.
+## Installation
+Install python>=3.7 and run commands below in your venv or something.
 ```bash
-pip install -U pip
-pip install opencv-python
+pip install -U pip setuptools build
+python -m build
+pip install dist/objdet_converter-1.0.0-py3-none-any.whl
 ```
 
 ## Usage
-Call '[convert_format](./utils/convert.py)' function with some args.
+Call '[convert_format](./objdet_converter/utils/convert.py)' function with some args.
 ### Example
 ```python
-from utils.convert import convert_format
+from objdet_converter.utils.convert import convert_format
 
 convert_format(
     src_format="coco",
