@@ -8,7 +8,6 @@ dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-where = ["."]
-include = ["objdet_converter"]
+where = ["src"]
+include = ["*"]
 exclude = [""]
-namespaces = false  # true by default
