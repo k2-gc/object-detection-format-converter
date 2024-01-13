@@ -1,4 +1,5 @@
 from collections import defaultdict
+import logging
 from pathlib import Path
 
 class BaseDataFormat:
@@ -26,6 +27,7 @@ class BaseDataFormat:
         self.image_id_to_annotation_list = defaultdict(list)
         self.class_id_to_class_name = dict()
         self.class_name_to_class_id = dict()
+        self.logger = logging.getLogger("logger")
         self.validation_check()
         
     def _parse_annotation(self):
@@ -39,3 +41,7 @@ class BaseDataFormat:
 
     def validation_check(self):
         pass
+
+    def _finalize(self):
+        self.logger.info("Program stopped")
+        exit()

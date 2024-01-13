@@ -53,6 +53,7 @@ class PascalVOCDataset(BaseDataFormat):
 
     
     def _parse_annotation(self):
+        self.logger.info("Parsing annotation file")
         annotation_path_list = sorted(self.src_path.glob("**/*xml"))
         annotation_id = 1
         for index, annotation_path in enumerate(annotation_path_list):
@@ -140,4 +141,6 @@ class PascalVOCDataset(BaseDataFormat):
         self.mscooc_data.convert(dst_format)
 
     def validation_check(self):
-        assert self.src_path.exists(), f"Annotation directory '{self.src_path}' not found"
+        if not self.src_path.exists():
+            self.logger.critical(f"Annotation directory '{self.src_path}' not found")
+            super()._finalize()

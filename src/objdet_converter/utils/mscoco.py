@@ -75,6 +75,7 @@ class MSCOCODataset(BaseDataFormat):
         self.class_name_to_class_id = {self.class_id_to_class_name[class_id]: idx+1 for idx, class_id, in enumerate(self.class_id_to_class_name)}
 
     def _parse_annotation(self):
+        self.logger.info("Parsing annotation file")
         with open(self.src_path) as f:
             json_content = json.load(f)
         assert "images" in json_content, f"'images' key is not appeared in {self.src_path}"
@@ -109,6 +110,7 @@ class MSCOCODataset(BaseDataFormat):
             })
 
     def _convert_to_yolo(self):
+        self.logger.info("Converting to YOLO")
         self.dst_path.mkdir(exist_ok=True, parents=True)
         for image_id, image_info in self.image_id_to_image_info.items():
             image_name = image_info["file_name"]
@@ -133,6 +135,7 @@ class MSCOCODataset(BaseDataFormat):
                 print(class_name, file=f)
 
     def _convert_to_kitti(self):
+        self.logger.info("Converting to KITTI")
         self.dst_path.mkdir(exist_ok=True, parents=True)
         for image_id, image_info in self.image_id_to_image_info.items():
             image_name = image_info["file_name"]
@@ -167,6 +170,7 @@ class MSCOCODataset(BaseDataFormat):
                         print(f"{class_name} {truncated} {occluded} {alpha} {' '.join(bbox)} {' '.join(dimensions)} {' '.join(location)} {rotation_y}", file=f)
 
     def _convert_to_pascalVOC(self):
+        self.logger.info("Converting to PascalVOC")
         self.dst_path.mkdir(exist_ok=True, parents=True)
         for image_id, image_info in self.image_id_to_image_info.items():
             image_name = image_info["file_name"]
@@ -226,6 +230,7 @@ class MSCOCODataset(BaseDataFormat):
             tree.write(str(annotation_path), xml_declaration=False)
         
     def dump_json(self):
+        self.logger.info("Converting to MSCOCO")
         current_time = datetime.datetime.now()
         current_time = current_time.strftime('%Y-%m-%d %H:%M:%S')
         image_info_list = defaultdict(list)
@@ -302,8 +307,12 @@ class MSCOCODataset(BaseDataFormat):
         # assert self.src_path.exists(), f"File/Dir path '{self.src_path}' not found"
         if str(self.src_path) == ".":
             return
-        assert self.src_path.suffix == ".json", f"When using mscoco, '{self.src_path}' must be json file"
-        assert self.src_path.exists(), f"Annotation file '{self.src_path}' not found"
+        if self.src_path.suffix != ".json":
+            self.logger.critical(f"When using mscoco, '{self.src_path}' must be json file")
+            super()._finalize()
+        if not self.src_path.exists():
+            self.logger.critical(f"Annotation file '{self.src_path}' not found")
+            super()._finalize()
 
     def set_data(self, 
                  image_id_to_image_info,

@@ -1,3 +1,5 @@
+import logging
+
 from pathlib import Path
 
 supported_data_format_list = [
@@ -16,14 +18,6 @@ supported_ext_list = [
     ".tif",
 ]
 
-class FormatInvalidError(Exception):
-    """Not used
-    """
-    def __init__(self, msg=None, *args: object) -> None:
-        if not msg:
-            msg = "Dataset Format not supported"
-        msg += f"\nSupported data format: [{','.join(supported_data_format_list)}]"
-        super().__init__(msg, *args)
 
 def check_format_validation(format: str) -> bool:
     """Check whether specified format is supported or not
@@ -34,10 +28,12 @@ def check_format_validation(format: str) -> bool:
     Returns:
         bool: Dataset format is supported = True, else = False
     """
+    logger = logging.getLogger("logger")
     if not format in supported_data_format_list:
-        print(f"Format '{format}' not Supported")
-        print(f"\nSupported data format: [{', '.join(supported_data_format_list)}")
+        logger.error(f"Format '{format}' not Supported")
+        logger.error(f"Supported data format: [{', '.join(supported_data_format_list)}]")
         return False
+    logger.info(f"Format '{format}' valid")
     return True
 
 def check_image_existence(file_path: Path) -> None | str:
