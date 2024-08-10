@@ -14,7 +14,7 @@ Deep learning field for image processing has many dataset format. For object det
 * Python >= 3.8
 
 ## Installation
-Install python>=3.7 and run commands below in your venv or something.
+Install python>=3.8 and run commands below in your venv or something.
 ```bash
 pip install -U pip setuptools build
 python -m build
