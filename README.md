@@ -11,7 +11,7 @@ Deep learning field for image processing has many dataset format. For object det
 * [x] KITTI
 
 ## Prerequisites
-* Python >= 3.7
+* Python >= 3.8
 
 ## Installation
 Install python>=3.7 and run commands below in your venv or something.
