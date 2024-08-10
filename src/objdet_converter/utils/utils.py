@@ -1,4 +1,5 @@
 import logging
+from typing import Union
 
 from pathlib import Path
 
@@ -36,7 +37,7 @@ def check_format_validation(format: str) -> bool:
     logger.info(f"Format '{format}' valid")
     return True
 
-def check_image_existence(file_path: Path) -> None | str:
+def check_image_existence(file_path: Path) -> Union[None, str]:
     """Check whether image exists or not.
        Get annotation file path, add supported image extension to the path and check existence
 
@@ -123,7 +124,7 @@ def topleftwh2topleftbottomright(bbox: list) -> list:
     bottom = top + height
     return [left, top, right, bottom]
 
-def absolute2relative(bbox: list, image_width: int | float, image_height: int | float) -> list:
+def absolute2relative(bbox: list, image_width: Union[int, float], image_height: Union[int, float]) -> list:
     """Convert bbox coordinates from absolute to relative
     
     Args:
@@ -140,7 +141,7 @@ def absolute2relative(bbox: list, image_width: int | float, image_height: int | 
     relative_y2 = bbox[3] / image_height
     return [relative_x1, relative_y1, relative_x2, relative_y2]
 
-def relative2absolute(bbox: list, image_width: int | float, image_height: int | float) -> list:
+def relative2absolute(bbox: list, image_width: Union[int, float], image_height: Union[int, float]) -> list:
     """Convert bbox coordinates from relative to absolute
     
     Args:
