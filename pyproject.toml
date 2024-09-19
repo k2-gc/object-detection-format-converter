@@ -1,13 +1,16 @@
 [project]
 name = "objdet_converter"
-version = "1.1.0"
+version = "1.2.0"
 requires-python = ">= 3.8"
 dependencies = [
     "numpy",
-    "opencv-python"
+    "opencv-python",
+    "fire",
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["*"]
 exclude = [""]
+[project.scripts]
+objdet-conv = "objdet_converter.app:app"
