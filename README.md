@@ -18,12 +18,26 @@ Install python>=3.8 and run commands below in your venv or something.
 ```bash
 pip install -U pip setuptools build
 python -m build
-pip install dist/objdet_converter-1.0.0-py3-none-any.whl
+pip install dist/objdet_converter-1.2.0-py3-none-any.whl
 ```
 
 ## Usage
+### CLI
+```bash
+objdet-conv convert --src-format 'SRC_FORMAT' --dst-format 'DST_FORMAT' --src-path 'PATH_TO_SRC' --dst-path 'PAST_TO_OUTPUT' --class-txt-path 'IF NEEDED'
+```
+Supported format strings:
+1. coco
+2. yolo
+3. pascalvoc
+4. kitti
+#### Example
+```bash
+objdet-conv convert --src-format yolo --dst-format coco --src-path ./yolo_dir --dst-path ./output --class-txt-path ./yolo_dir/classes.txt
+```
+### Call from Function
 Call '[convert_format](./objdet_converter/utils/convert.py)' function with some args.
-### Example
+####  Example
 ```python
 from objdet_converter.convert import convert_format
 
